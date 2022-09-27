@@ -1,0 +1,81 @@
+#include <iostream>
+
+using namespace std;
+
+class complex{
+    public:
+        float real;
+        float imaginary;
+};
+
+complex add(complex complex1,complex complex2){
+    complex res;
+    res.real = complex1.real + complex2.real;
+    res.imaginary = complex1.imaginary + complex2.imaginary;
+    return res;
+}
+
+complex subtract(complex complex1,complex complex2){
+    complex res;
+    res.real = complex1.real - complex2.real;
+    res.imaginary = complex1.imaginary - complex2.imaginary;
+    return res;
+}
+
+void equal(complex complex1,complex complex2){
+    if ((complex1.real == complex2.real) && (complex1.imaginary = complex2.imaginary)){
+        cout<<"Both numbers are Equal"<<endl;
+    }
+    else{
+        cout<<"Numbers are not equal"<<endl;
+    }
+}
+
+complex multiply(complex complex1,complex complex2){
+    complex res;
+    res.real = (complex1.real*complex2.real) - (complex1.imaginary*complex2.imaginary);
+    res.imaginary = (complex1.real*complex2.imaginary) + (complex1.imaginary*complex2.real);
+    return res;
+}
+
+int main(){
+    complex c1,c2,res;
+    cout<<"Enter real part of first complex number:"<<endl;
+    cin>>c1.real;
+    cout<<"Enter real part of second complex number:"<<endl;
+    cin>>c2.real;
+    cout<<"Enter imaginary part of first complex number:"<<endl;
+    cin>>c1.imaginary;
+    cout<<"Enter imaginary part of second complex number:"<<endl;
+    cin>>c2.imaginary;
+    
+    int q;
+    while(true){
+        
+        cout<<"Press 1 to Add, 2 to Subtract, 3 to check whether numbers are equal, 4 to Multiply, 5 to Quit"<<endl;
+        cin>>q;
+        
+        if(q == 1){
+            complex sum = add(c1,c2);
+            cout<<"Addition resultant is: "<< sum.real << "+" << sum.imaginary<< "i"<<endl;
+        }
+        else if(q == 2){
+            complex diff = subtract(c1,c2);
+            cout<<"Subtraction resultant is: "<< diff.real << "+" << diff.imaginary << "i"<<endl;
+        }
+        else if(q == 3){
+            equal(c1,c2);
+        }
+        else if(q == 4){
+            complex mul = multiply(c1,c2);
+            cout<<"Multiplication resultant is: "<< mul.real << "+" << mul.imaginary<<"i"<<endl;
+        }
+        else{
+            cout<<"You have Quit!";
+            break;
+        }
+    
+    
+    }
+
+}
